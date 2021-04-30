@@ -38,19 +38,19 @@ class Product
     private $productPrice;
 
     /**
-     * @ORM\ManyToOne(targetEntity=category::class, inversedBy="products")
+     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="products")
      * @ORM\JoinColumn(nullable=false)
      */
     private $productCategory;
 
     /**
-     * @ORM\ManyToOne(targetEntity=region::class, inversedBy="products")
+     * @ORM\ManyToOne(targetEntity=Region::class, inversedBy="products")
      * @ORM\JoinColumn(nullable=false)
      */
     private $regionProduct;
 
     /**
-     * @ORM\ManyToOne(targetEntity=user::class, inversedBy="productUserId")
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="productUserId")
      * @ORM\JoinColumn(nullable=false)
      */
     private $productUser;
@@ -108,36 +108,36 @@ class Product
         return $this;
     }
 
-    public function getProductCategory(): ?category
+    public function getProductCategory(): ?Category
     {
         return $this->productCategory;
     }
 
-    public function setProductCategory(?category $productCategory): self
+    public function setProductCategory(?Category $productCategory): self
     {
         $this->productCategory = $productCategory;
 
         return $this;
     }
 
-    public function getRegionProduct(): ?region
+    public function getRegionProduct(): ?Region
     {
         return $this->regionProduct;
     }
 
-    public function setRegionProduct(?region $regionProduct): self
+    public function setRegionProduct(?Region $regionProduct): self
     {
         $this->regionProduct = $regionProduct;
 
         return $this;
     }
 
-    public function getProductUser(): ?user
+    public function getProductUser(): ?User
     {
         return $this->productUser;
     }
 
-    public function setProductUser(?user $productUser): self
+    public function setProductUser(?User $productUser): self
     {
         $this->productUser = $productUser;
 
