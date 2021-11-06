@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+    <div class="text-center m-3">
+        <h1>Petites Annonces</h1>
+    </div>
+    <div class="row">
+        <div class="col-md-10 d-flex flex-wrap justify-content-around m-2">
+            {% for prod in product %}
+                
+                <div class="card " style="width: 18rem;">
+                    <img class="card-img-top" src="https://i.picsum.photos/id/740/200/200.jpg?hmac=9ZHqyCz7Gy7V9lyQcKw8m1VAVXW6mjx26txirRYVaSc" alt="{{ prod.productName }}">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">{{ prod.productName }}</h5>
+                        <a href= "{{ path('product_show', {'id': prod.id}) }}" class="btn btn-primary">En savoir plus</a>
+                    </div>
+                </div>               
+            {% endfor %}
+        </div>
+        
+
+        <div class="bloc-home-cat col-md-2 ">
+            <h3 class="text-center">Catégories</h3>
+            <ul class="list-group">
+                {% for cat in category %}
+                    <li class="list-group-item d-flex justify-content-center align-items-center">
+                        <a href="{{ path('show_cat', {'id':cat.id}) }}"> {{ cat.categoryName }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Annonces{% endblock %}
+
+{% block body %}
+    <h1 class="text-center p-3">Liste des Annonces</h1>
+
+    <table class="table table-secondary table-striped table-hover ">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nom du Produit</th>
+            <th>Description</th>
+            <th>Photo</th>
+            <th>Prix</th>
+            <th>actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for product in products %}
+            <tr>
+                <td>{{ product.id }}</td>
+                <td>{{ product.productName }}</td>
+                <td>{{ product.productDescription | raw }}</td>
+                <td><img class="img-fluid" src="https://i.picsum.photos/id/740/200/200.jpg?hmac=9ZHqyCz7Gy7V9lyQcKw8m1VAVXW6mjx26txirRYVaSc"  alt="{{ product.productName }}"></td>
+                <td>{{ product.productPrice }}</td>
+                <td class="d-flex justify-content-around">
+                    <a href="{{ path('product_show', {'id': product.id}) }}" class="btn btn-outline-primary">Détails</a>
+                    <a href="{{ path('product_edit', {'id': product.id}) }}" class="btn btn-outline-warning">Éditer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">Aucune annonce trouvée</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <div class="d-flex justify-content-center">
+        <a href="{{ path('product_new') }}" class="btn btn-outline-primary m-3">Créer une nouvelle annonce</a>
+    </div>
+{% endblock %}

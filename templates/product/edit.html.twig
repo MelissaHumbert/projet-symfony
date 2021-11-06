@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Édition du Produit{% endblock %}
+
+{% block body %}
+    <h1 class="text-center m-3">Éditer le Produit</h1>
+
+<div class="">
+    {{ include('product/_form.html.twig', {'button_label': 'Éditer'}) }}
+</div>
+
+<div class=" text-center m-3">
+    <a class="btn btn-primary" href="{{ path('product_index') }}">Retour</a>
+</div>
+{% endblock %}

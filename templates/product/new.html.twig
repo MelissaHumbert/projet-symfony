@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvelle Annonce{% endblock %}
+
+{% block body %}
+    <h1 class="text-center m-3">Créer une nouvelle annonce</h1>
+
+    {{ include('product/_form.html.twig') }}
+
+    <a href="{{ path('product_index') }}">Retour</a>
+{% endblock %}

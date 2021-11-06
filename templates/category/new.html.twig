@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvelle Catégorie{% endblock %}
+
+{% block body %}
+    <h1vclass="text-center m-3">Créer une nouvelle catégorie</h1vclass=>
+
+    {{ include('category/_form.html.twig') }}
+
+    <a href="{{ path('category_index') }}">Retour</a>
+{% endblock %}
